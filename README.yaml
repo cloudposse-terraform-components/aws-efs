@@ -1,70 +1,73 @@
-name: "template"
-
+name: "aws-efs"
 # Canonical GitHub repo
-github_repo: "cloudposse-terraform-components/template"
-
+github_repo: "cloudposse-terraform-components/aws-efs"
 # Short description of this project
 description: |-
-  Description of this component
+  This component is responsible for provisioning an [EFS](https://aws.amazon.com/efs/) Network File System with KMS
+  encryption-at-rest. EFS is an excellent choice as the default block storage for EKS clusters so that volumes are not
+  zone-locked.
 
-usage: |-
-  **Stack Level**: Regional or Test47
+  ## Usage
+
+  **Stack Level**: Regional
 
   Here's an example snippet for how to use this component.
-  
+
   ```yaml
   components:
     terraform:
-      foo:
+      efs:
         vars:
           enabled: true
+          name: shared-files
+          dns_name: shared-files
+          provisioned_throughput_in_mibps: 10
+        # additional_security_group_rules:
+        #   - key: "fargate_efs"
+        #     type: "ingress"
+        #     from_port: 2049
+        #     to_port: 2049
+        #     protocol: "tcp"
+        #     description: "Allow Fargate EFS Volume mounts"
+        #     cidr_blocks: ["0.0.0.0/0"]
   ```
 
+  <!-- prettier-ignore-start -->
+
+  <!-- prettier-ignore-end -->
+
+  ## References
+
+  - [cloudposse/terraform-aws-components](https://github.com/cloudposse/terraform-aws-components/tree/main/modules/efs) -
+    Cloud Posse's upstream component
 include:
   - "docs/terraform.md"
-
 tags:
-  - terraform
-  - terraform-modules
-  - aws
-  - components
-  - terraform-components
-  - root
-  - geodesic
-  - reference-implementation
-  - reference-architecture
-
+  - component/efs
+  - layer/data
+  - layer/eks
+  - provider/aws
 # Categories of this project
 categories:
-  - terraform-modules/root
-  - terraform-components
-
+  - component/efs
+  - layer/data
+  - layer/eks
+  - provider/aws
 # License of this project
 license: "APACHE2"
-
 # Badges to display
 badges:
-  - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse-terraform-components/template.svg?style=for-the-badge"
-    url: "https://github.com/cloudposse-terraform-components/template/releases/latest"
-  - name: "Slack Community"
-    image: "https://slack.cloudposse.com/for-the-badge.svg"
-    url: "https://slack.cloudposse.com"
-
-references:
-  - name: "Cloud Posse Documentation"
-    description: "Complete documentation for the Cloud Posse solution"
-    url: "https://docs.cloudposse.com"
-  - name: "Reference Architectures"
-    description: "Launch effortlessly with our turnkey reference architectures, built either by your team or ours."
-    url: "https://cloudposse.com/"
-
+  - name: Latest Release
+    image: https://img.shields.io/github/release/cloudposse-terraform-components/aws-efs.svg?style=for-the-badge
+    url: https://github.com/cloudposse-terraform-components/aws-efs/releases/latest
+  - name: Slack Community
+    image: https://slack.cloudposse.com/for-the-badge.svg
+    url: https://slack.cloudposse.com
 related:
-- name: "Cloud Posse Terraform Modules"
-  description: Our collection of reusable Terraform modules used by our reference architectures.
-  url: "https://docs.cloudposse.com/modules/"
-- name: "Atmos"
-  description: "Atmos is like docker-compose but for your infrastructure"
-  url: "https://atmos.tools"
-
+  - name: "Cloud Posse Terraform Modules"
+    description: Our collection of reusable Terraform modules used by our reference architectures.
+    url: "https://docs.cloudposse.com/modules/"
+  - name: "Atmos"
+    description: "Atmos is like docker-compose but for your infrastructure"
+    url: "https://atmos.tools"
 contributors: [] # If included generates contribs
