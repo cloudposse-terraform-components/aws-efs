@@ -5,5 +5,3 @@ repository:
   description: This component is responsible for provisioning an EFS Network File System with KMS encryption-at-rest
   homepage: https://cloudposse.com/accelerate
   topics: terraform, terraform-component
-
-
