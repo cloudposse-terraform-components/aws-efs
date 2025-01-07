@@ -77,7 +77,7 @@ data "aws_iam_policy_document" "kms_key_efs" {
       type = "AWS"
 
       identifiers = [
-        format("arn:%s:iam::%s:root", join("", data.aws_partition.current.*.partition), join("", data.aws_caller_identity.current.*.account_id))
+        format("arn:%s:iam::%s:root", join("", data.aws_partition.current[*].partition), join("", data.aws_caller_identity.current[*].account_id))
       ]
     }
   }
