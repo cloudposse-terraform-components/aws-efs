@@ -1,10 +1,10 @@
 components:
   terraform:
-    efs/basic:
+    efs/disabled:
       metadata:
         component: target
       vars:
-        enabled: true
+        enabled: false
         name: shared-files
         hostname_template: "%[3]v.%[2]v.%[1]v"
         performance_mode: generalPurpose
