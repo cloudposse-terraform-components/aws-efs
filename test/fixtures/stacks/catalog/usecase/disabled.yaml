@@ -1,0 +1,21 @@
+components:
+  terraform:
+    efs/disabled:
+      metadata:
+        component: target
+      vars:
+        enabled: false
+        name: shared-files
+        hostname_template: "%[3]v.%[2]v.%[1]v"
+        performance_mode: generalPurpose
+        throughput_mode: bursting
+        provisioned_throughput_in_mibps: 0
+        eks_security_group_enabled: false
+      # additional_security_group_rules:
+      #   - key: "fargate_efs"
+      #     type: "ingress"
+      #     from_port: 2049
+      #     to_port: 2049
+      #     protocol: "tcp"
+      #     description: "Allow Fargate EFS Volume mounts"
+      #     cidr_blocks: ["0.0.0.0/0"]
