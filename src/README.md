@@ -56,7 +56,7 @@ components:
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_efs"></a> [efs](#module\_efs) | cloudposse/efs/aws | 0.36.0 |
+| <a name="module_efs"></a> [efs](#module\_efs) | cloudposse/efs/aws | 1.1.0 |
 | <a name="module_eks"></a> [eks](#module\_eks) | cloudposse/stack-config/yaml//modules/remote-state | 1.8.0 |
 | <a name="module_gbl_dns_delegated"></a> [gbl\_dns\_delegated](#module\_gbl\_dns\_delegated) | cloudposse/stack-config/yaml//modules/remote-state | 1.8.0 |
 | <a name="module_iam_roles"></a> [iam\_roles](#module\_iam\_roles) | ../account-map/modules/iam-roles | n/a |
