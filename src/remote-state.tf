@@ -25,5 +25,9 @@ module "gbl_dns_delegated" {
   component   = "dns-delegated"
   environment = "gbl"
 
+  defaults = {
+    default_dns_zone_id = ""
+  }
+
   context = module.this.context
 }
