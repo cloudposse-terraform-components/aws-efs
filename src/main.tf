@@ -17,7 +17,7 @@ locals {
 
 module "efs" {
   source  = "cloudposse/efs/aws"
-  version = "1.2.0"
+  version = "1.2.1"
 
   region                          = var.region
   vpc_id                          = local.vpc_id
